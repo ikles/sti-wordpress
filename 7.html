@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">  
+  <!--meta name="viewport" content="width=1200px"-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />            
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7. Новости</title>  
+  @@include('var/_styless.html')
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+  <div class="wrapper">    
+    @@include('var/_header_classes.html',{
+      "class":"",
+      "bg": "img/header-bg6.jpg"
+    })    
+    @@include('var/_top.html')
+    <div class="banner banner__upp">      
+      <div class="contain banner__inn">
+        <ul class="bread">
+          <li><a href="">Главная</a></li>
+          <li>Новости</li>
+        </ul>
+        <h1>Новости</h1>   
+        <div class="w1028">
+          <p>Компания «СТИ» основана в 1999 г. и на сегодняшний день является ведущим системным интегратором с огромным опытом реализации ИТ-проектов различного масштаба и уровня сложности. Компания разрабатывает и внедряет специализированные ИТ-решения для различных отраслей, в числе которых государственные учреждения, топливно-энергетический комплекс, финансовый и промышленный сектор.</p>
+        </div>       
+        <!-- <a href="" class="btn">Получить консультацию</a> -->
+      </div>      
+    </div>
+  </header>
+  <main class="main">
+    <section class="news">
+      <div class="contain">
+        <h2>Новости</h2>
+        <div class="news__list">
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+          <div class="news__col">
+            @@include('var/_news__item.html',{
+              "txt":"Сотрудники «ПРАЙМ ГРУП» прошли обучение по отечественной системе технической инвентаризации и учета ИТ-активов «СДИ Базис»"
+            })      
+          </div>
+        </div>
+      </section>    
+    </main>
+    @@include('var/_footer.html')
+  </div>
+  <!--wrapper-->
+  @@include('var/_scripts.html')
+</body>
+</html>
+

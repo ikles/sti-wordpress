@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">  
+  <!--meta name="viewport" content="width=1200px"-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />            
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3. Корпоративные решения</title>  
+  @@include('var/_styless.html')
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+  <div class="wrapper">    
+    @@include('var/_header_classes.html',{
+      "class":"",
+      "bg": "img/header-bg3.jpg"
+    })    
+    @@include('var/_top.html')
+    <div class="banner">      
+      <div class="contain banner__inn">
+        <ul class="bread">
+          <li><a href="">Главная</a></li>
+          <li>Услуги и решения</li>
+        </ul>
+        <h1>Корпоративные <br> хранилища данных</h1>  
+        <h3>Получите рост производительности <br> с MPP платформой ArenaData</h3>
+        <p>Используйте продуктовую линейку российского вендора <br> для создания корпоративной Data-платформы</p>
+        <a href="" class="btn">Получить консультацию</a>
+      </div>      
+    </div>
+  </header>
+  <main class="main">
+    <section class="uniq">      
+      <div class="contain">
+        <h2 class="h2">Уникальность продукта</h2>
+        <div class="uniq__w">
+          <div class="val__col">
+            @@include('var/_val__item.html',{
+              "class": "blu-1",
+              "img":"img/uniq-1.svg",
+              "title":"Обработка любого типа нагрузки на чтение и запись: OLAP, OLTP, Streaming",
+              "txt":""
+            })   
+          </div>
+          <div class="val__col">
+            @@include('var/_val__item.html',{
+              "class": "blu-2",
+              "img":"img/uniq-2.svg",
+              "title":"Единая система управления мониторинга всей платформы",
+              "txt":""
+            })   
+          </div>
+          <div class="val__col-50">
+            @@include('var/_val__item.html',{
+              "class": "blu-3",
+              "img":"img/uniq-3.svg",
+              "title":"Поддерживает multi-clouds и гибридную платформу, которая позволяет использовать как существующую on-premise, так и облачную инфраструктуры",
+              "txt":""
+            })   
+          </div>
+          <div class="val__col-50">
+            @@include('var/_val__item.html',{
+              "class": "",
+              "img":"img/uniq-4.svg",
+              "title":"Высокая производительность, достигаемая благодаря линейному масштабированию и кластерным технологиям",
+              "txt":""
+            })   
+          </div>
+          <div class="val__col-50">
+            @@include('var/_val__item.html',{
+              "class": "blu-4",
+              "img":"img/uniq-5.svg",
+              "title":"Нативная отказоустойчивость всех компонентов",
+              "txt":""
+            })   
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="imp">      
+      <div class="contain">
+        <h2>Импортозаме<wbr/>щение СУБД</h2>
+        <p>Продукты Arenadata могут эффективно замещать аналитические и транзакционные СУБД крупнейших западных производителей:</p>
+      </div>
+      <div class="imp__bg">
+        <div class="contain">
+          <div class="imp__w">
+            <ul class="imp__ul">
+              <li>Импортозамещение Teradata, Oracle, Vertica, Tanzu/Pivotal Greenplum, Cloudera и др. для хранения, аналитической и транзакционной обработки данных</li>
+              <li>Импортозамещение Confluent Kafka, IBM Streams, SAS Event Streams Processing, Azure Stream Analytics и др. для загрузки и потоковой обработки данных</li>
+              <li>Импортозамещение Microsoft SQL, Amazon Timestream, HCL Informix, InfluxDB Enterprise и др. для обработки витрин данных</li>
+              <li>Импортозамещение Oracle DB, IBM DB2, SAP Sybase ASE и др. для работы с данными при нагрузке смешанного типа, в первую очередь OLTP (российский аналог PostgreSQL)</li>
+              <li>Импортозамещение Elastic, Splunk для анализа и полнотекстового поиска в режиме реального времени</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="platform">
+      <div class="contain">
+        <div class="platform__w">
+          <div class="platform__l">
+            <h2>Arenadata Enterprise Data Platform (EDP)</h2>
+            <p>Корпоративная платформа данных, которая состоит из open source продуктов и позволяет работать с большими объёмами данных в любой среде, включая публичные и частные облака</p>
+            <a href="" class="platform__btn">Получить консультацию</a>
+          </div>
+          <div class="platform__img">
+            <img src="img/platform-1.jpg">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="stor">      
+      <div class="contain">
+        <h2>Хранение и обработка данных</h2>
+        <div class="stor__row">
+          <a href="" class="stor__item">
+            <div class="stor__title">Arenadata DB (ADB)</div>
+            <p>Аналитическая, распределённая СУБД, построенная на MPP-системе с открытым исходным кодом Greenplum. Предназначена для хранения и обработки больших объёмов информации — до десятков петабайт</p>
+          </a>
+          <a href="" class="stor__item">
+            <div class="stor__title">Arenadata Hadoop (ADH)</div>
+            <p>Аналитическая, распределённая СУБД, построенная на MPP-системе с открытым исходным кодом Greenplum. Предназначена для хранения и обработки больших объёмов информации — до десятков петабайт</p>
+          </a>
+          <a href="" class="stor__item">
+            <div class="stor__title">Arenadata QuickMarts (ADQM)</div>
+            <p>Кластерная колоночная система управления базами данных, созданная на основе ClickHouse. Предназначена для аналитические отчёты разного плана с использованием Big Data.</p>
+          </a>
+          <a href="" class="stor__item">
+            <div class="stor__title">Arenadata Postgres (ADPG)</div>
+            <p>
+              Универсальная база данных для эффективной работы с нагрузкой разного профиля, в первую очередь, OLTP (Online Transaction Processing). Arenadata Postgres позволяет работать с различными объёмами данных и поддерживает
+              широкий набор типов данных.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="get">      
+      <div class="contain">
+        <h2>Что вы получите уже через 2 месяца после внедрения ArenaData:</h2>
+        <div class="get__row">
+          <a class="get__item blu-1">
+            <div class="get__img"><img src="img/sol-7.svg" /></div>
+            <div class="get__title">Перспективность</div>
+            <p>Решение вопросов производительности со значительным запасом на будущее</p>
+          </a>
+          <a class="get__item blu-2">
+            <div class="get__img"><img src="img/get-1.svg" /></div>
+            <div class="get__title">Масштабируемость</div>
+            <p>Возможность в любой момент увеличить производительность, расширив кластер доступными серверами</p>
+          </a>
+          <a class="get__item blu-2">
+            <div class="get__img"><img src="img/get-3.svg" /></div>
+            <div class="get__title">Скорость</div>
+            <p>Многократное сокращение времени на обработку новых данных</p>
+          </a>
+        </div>
+        <div class="get__btn-w">
+          <a href="" class="get__btn">Узнать больше</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  @@include('var/_footer.html')    
+</div>
+<!--wrapper-->
+
+@@include('var/_scripts.html')
+</body>
+</html>
+

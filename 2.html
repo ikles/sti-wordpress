@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">  
+  <!--meta name="viewport" content="width=1200px"-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />            
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2. О компании</title>  
+  @@include('var/_styless.html')
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+  <div class="wrapper">    
+    @@include('var/_header_classes.html',{
+      "class":"",
+      "bg": "img/header-bg2.jpg"
+    })    
+    @@include('var/_top.html')
+    <div class="banner">      
+      <div class="contain banner__inn">
+        <ul class="bread">
+          <li><a href="">Главная</a></li>
+          <li>Услуги и решения</li>
+        </ul>
+        <h1>CТИ - это инновационная <br> культура и новейшие<br> технологии</h1>  
+        <a href="" class="btn">Получить консультацию</a>
+      </div>      
+    </div>
+  </header>
+  <main class="main">
+    <section class="val">     
+      <div class="contain">
+        <h2>Наши ценности</h2>
+        <div class="val__row">
+          <div class="val__col">
+            @@include('var/_val__item.html',{
+              "class": "blu-1",
+              "img":"img/val-1.svg",
+              "title":"Работаем в команде",
+              "txt":"Мы добиваемся общих целей"
+            })   
+          </div>
+          <div class="val__col">
+            @@include('var/_val__item.html',{
+              "class": "blu-2",
+              "img":"img/val-2.svg",
+              "title":"Отвечаем за результат",
+              "txt":"Мы нацелены на результат, а не на процесс"
+            })  
+          </div>
+          <div class="val__col">
+            @@include('var/_val__item.html',{
+              "class": "blu-2",
+              "img":"img/val-3.svg",
+              "title":"Проявляем инициативу",
+              "txt":"Мы формируем желания, а не отрабатываем потребности"
+            })
+          </div>
+          <div class="val__col">
+            @@include('var/_val__item.html',{
+              "class": "",
+              "img":"img/val-4.svg",
+              "title":"Совершен<wbr/>ствуемся постоянно",
+              "txt":"Мы не боимся экспериментировать"
+            })                    
+          </div>
+        </div>
+        <div class="val__desc row">
+          <div class="col-50">
+            <p>
+              Компания «СТИ» основана в 1999 г. и на сегодняшний день является ведущим системным интегратором с огромным опытом реализации ИТ-проектов различного масштаба и уровня сложности. Компания разрабатывает и внедряет
+              специализированные ИТ-решения для различных отраслей, в числе которых государственные учреждения, топливно-энергетический комплекс, финансовый и промышленный сектор.
+            </p>
+            <p>«СТИ» предоставляет полный спектр ИТ-услуг по созданию и развитию ИТ-инфраструктуры, разработке и с</p>
+          </div>
+          <div class="col-50">
+            <p>сопровождению информационно-управляющих систем, а так же по поставке оборудования и программного обеспечения.</p>
+            <p>
+              Компания постоянно сотрудничает с ведущими мировыми лидерами ИТ-рынка, производителями оборудования и программного обеспечения, что позволяет создавать комплексные решения, сочетающие инфраструктурную часть с
+              автоматизацией бизнес-процессов.
+            </p>
+          </div>
+        </div>
+      </div>    
+    </section>
+    <section class="qual">      
+      <div class="contain">
+        <h2>Качество</h2>
+        <div class="qual__row row">
+          <div class="col-50">
+            <p>
+              Качество услуг компании «СТИ» подтверждено уникальным пакетом лицензий и сертификатов, в том числе на работу с государственной тайной и на соответствие требованиям стандартов ГОСТ РВ 15.002-2003, ГОСТ Р ISO 9001-2008, –
+              всего более 30 лицензий и сертификатов. Компания неоднократно доказывала успешность применения сертифицированных процессов на практике и их приспособленность к условиям самых разнообразных клиентов.
+            </p>
+          </div>
+          <div class="col-50">
+            <div class="qual__gal">
+              <a data-fancybox="gallery" href="img/qual-pat.jpg"><img src="img/qual-pat.jpg" /></a>
+              <a data-fancybox="gallery" href="img/qual-pat.jpg"><img src="img/qual-pat.jpg" /></a>
+              <a data-fancybox="gallery" href="img/qual-pat.jpg"><img src="img/qual-pat.jpg" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    
+  </main>
+
+  @@include('var/_footer.html')    
+</div>
+<!--wrapper-->
+
+@@include('var/_scripts.html')
+</body>
+</html>
+
