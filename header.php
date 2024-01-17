@@ -28,8 +28,7 @@
 <body <?php body_class(); ?>>	
 
 <div class="wrapper">    
-  <header class="header <? if(is_front_page()) {echo 'index-header';} ?>" id="header">
-    <img src="<? bloginfo('template_url') ?>/img/index-header-bg.jpg" alt="" class="header__bg">    
+  <header class="header <? if(is_front_page()) {echo 'index-header';} ?>" id="header">       
     <div class="top" id="top">
       <div class="contain">
         <div class="top__row">

@@ -1,160 +1,118 @@
 <?php wp_reset_postdata(); ?>
-<?php get_header(); ?>
-
-<?php
-while (have_posts() ): the_post();
-  get_template_part('parts/banner', '', $post->ID);
-endwhile;
-?>
+<?php get_header(); ?>  
+<img src="<? the_field('banner_bg');?>" alt="" class="header__bg">
+<div class="banner">
+  <div class="contain banner__inn">
+    <h1><?the_field('banner_title');?></h1>
+    <div class="banner_subtitle"><?the_field('banner_subtitle');?></div>            
+    <?php if (get_field('banner_subtitle_2')): ?>
+      <h4><?the_field('banner_subtitle_2');?></h4>
+    <?php endif; ?>
+    <?php if (get_field('banner_text')): ?>
+      <?the_field('banner_text');?>
+    <?php endif; ?>
+    <?php if (get_field('banner_btn_text')): ?>
+      <a href="<?the_field('banner_btn_link');?>" class="btn"><?the_field('banner_btn_text');?></a>
+    <?php endif; ?>    
+    <?php if (get_field('banner_icons')): ?>
+      <div class="topcats__row">
+        <?
+        $banner_icons = get_field('banner_icons');
+        foreach($banner_icons as $banner_id): ?>          
+          <a href="<? the_permalink($banner_id); ?>">
+            <div class="topcats__img-w"><img src="<? echo get_the_post_thumbnail_url($banner_id, 'large'); ?>" /></div>
+            <div class="topcats__text"><? echo get_the_title($banner_id); ?></div>
+          </a>
+        <? endforeach ?>
+      </div>
+    <?php endif; ?>    
+  </div>
+</div>  
+</header>
 <main class="main">
- <section class="about">
-  <div class="contain">
-    <div class="about__row">
-      <div class="about__l">
-        <h1>О компании</h1>
-        <p>
-          Разработка, внедрение и поддержка сложных информационных систем и инфраструктурных решений федерального и регионального значения. Развитие и адаптация передовых технологий с учетом текущих и перспективных потребностей
-          Заказчиков.
-        </p>
-      </div>
-      <div class="about__r">
-        <p>
-          Все работы, выполняемые&nbsp; «СТИ ИНЖИНИРИНГ», осуществляются в соответствии с государственными стандартами и требованиями регулирующих органов в области построения информационных систем. «СТИ ИНЖИНИРИНГ» входит в
-          реестр аккредитованных организаций, осуществляющих деятельность в области информационных технологий.
-        </p>
-        <p class="bloq">
-          Одним из преимуществ компании «СТИ ИНЖИНИРИНГ» является большой опыт в области создания и сопровождения сложных систем федерального масштаба, в том числе опыт реализации проектов в области информационной безопасности
-        </p>
-      </div>
-    </div>
-    <div class="res">
-      <div class="res__row">
-        <div class="res__l">
-          <h2>СОЗДАЕМ IT-РЕШЕНИЯ, КОТОРЫЕ ПРИНОСЯТ ИЗМЕРИМЫЙ РЕЗУЛЬТАТ</h2>
+  <?
+// проверяем есть ли данные в гибком содержании
+  if( have_rows('blocks') ):
+  //echo 'yes 1';
+  // перебираем макеты гибкого содержания
+    while ( have_rows('blocks') ) : the_row(); ?>    
+<? // проверяем на нужный макет
+if( get_row_layout() == 'babout'): ?>
+  <section class="about">
+    <div class="contain">
+      <div class="about__row">
+        <div class="about__l">                
+          <?php if (get_sub_field('title')): ?>
+            <h1><?the_sub_field('title');?></h1>
+          <?php endif; ?>
+          <?the_sub_field('txt_1');?>
         </div>
-        <div class="res__r"><p>Ежедневно мы помогаем крупнейшим компаниям страны ответить на вопросы о развитии бизнеса и ключевых бизнес-процессов.</p></div>
+        <div class="about__r">
+          <?the_sub_field('txt_2');?>
+        </div>
       </div>
-      <div class="res__items">
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-1.svg"/></div>
-          <p>Инфраструктурные решения</p>
-        </a>
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-2.svg"/></div>
-          <p>Телекоммуникационные решения</p>
-        </a>
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-3.svg"/></div>
-          <p>Информационная безопасность</p>
-        </a>
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-4.svg"/></div>
-          <p>Информационная безопасность</p>
-        </a>
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-5.svg"/></div>
-          <p>Корпоративные порталы</p>
-        </a>
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-6.svg"/></div>
-          <p>Корпоративные хранилища данных</p>
-        </a>
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-7.svg"/></div>
-          <p>BI Аналитика данных</p>
-        </a>
-        <a href="" class="resitem">
-          <div><img src="<? bloginfo('template_url') ?>/img/res-8.svg"/></div>
-          <p>Системы Big Data</p>
-        </a>
+      <div class="res">
+        <div class="res__row">
+          <div class="res__l">
+            <?the_sub_field('subtitle');?>
+          </div>
+          <div class="res__r">
+            <?the_sub_field('txt_3');?>
+          </div>
+        </div>      
       </div>
     </div>
-  </div>
-</section>
-<section class="direct">      
-  <div class="contain">
-    <h2>Направления</h2>
-    <div class="direct__row">
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-1.jpg" /></div>
-        <div class="direct__title">Монтаж компьютерных и телефонных сетей</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-2.jpg" /></div>
-        <div class="direct__title">Решение вопросов информационной безопасности</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-3.jpg" /></div>
-        <div class="direct__title">Поставка серверов, систем хранения данных и систем резервного копирования</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-4.jpg" /></div>
-        <div class="direct__title">Проектирование, монтаж систем видеонаблюдения, систем учета рабочего времени, систем контроля доступа</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-5.jpg" /></div>
-        <div class="direct__title">Подбор и поставка необходимого оборудования</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-6.jpg" /></div>
-        <div class="direct__title">Внедрение электронных систем документооборота и средств коллективной работы</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-7.jpg" /></div>
-        <div class="direct__title">Автоматизация учета</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-8.jpg" /></div>
-        <div class="direct__title">Аудит IT-инфраструктуры и проектов</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-9.jpg" /></div>
-        <div class="direct__title">Внедрение систем управления взаимоотношениями с клиентами (CRM)</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-10.jpg" /></div>
-        <div class="direct__title">Внедрение систем повышения эффективности (CPM)</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
-      <a href="" class="direct__item">
-        <div class="direct__img-w"><img src="<? bloginfo('template_url') ?>/img/direct-11.jpg" /></div>
-        <div class="direct__title">Поставка оборудования ведущих мировых производителей</div>
-        <div class="direct__text">
-          Заметное событие в отрасли информационной безопасности, благодаря высокой деловой репутации и её членов, компаний-лидеров рынка и лучших экспертов.
-        </div>
-      </a>
+  </section>
+<? endif; ?> 
+
+<?if( get_row_layout() == 'resitems'): ?>
+<section class="resitems">
+    <div class="contain">
+  <div class="res__items">
+      <?php if (get_sub_field('resitem')): ?>      
+        <?
+        $resitem_icons = get_sub_field('resitem');
+        foreach($resitem_icons as $resitem_id): ?>          
+          <a href="<? the_permalink($resitem_id); ?>" class="resitem">
+            <div><img src="<? echo get_the_post_thumbnail_url($resitem_id, 'large'); ?>"/></div>
+            <p><? echo get_the_title($resitem_id); ?></p>
+          </a>
+        <? endforeach ?>      
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<?php endif; ?>
+<?php endif; ?>
+
+<? if( get_row_layout() == 'direct'): ?>
+  <section class="direct">      
+    <div class="contain">
+      <h2><?the_sub_field('title')?></h2>
+      <div class="direct__row">
+        <?php if (get_sub_field('list')): ?>      
+          <?
+          $list_icons = get_sub_field('list');
+          foreach($list_icons as $list_id): ?>          
+            <a href="<? the_permalink($list_id); ?>" class="direct__item">
+              <div class="direct__img-w"><img src="<? the_field('direct_img', $list_id)?>" /></div>
+              <div class="direct__title"><? echo get_the_title($list_id); ?></div>
+              <div class="direct__text">              
+                <? the_field('direct_desc', $list_id)?>
+              </div>
+            </a>
+          <? endforeach ?>      
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+<? endif; ?> 
+<!--end while-->
+<? endwhile; else : /*echo 'макетов не найдено';*/ endif; ?>
+<!--end while-->
+
+
+
+
 <section class="imp">      
   <div class="contain">
     <h2>Импортозамеще<wbr/>ние в ИТ</h2>
@@ -317,6 +275,6 @@ endwhile;
       </ul>
     </div>
   </div>
-</section>    
+</section> 
 </main>
 <?php get_footer(); ?>

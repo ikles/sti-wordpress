@@ -37,6 +37,83 @@ function p_a($arr) {
 }
 
 
+function wfmtest_custom_init() {
+	register_post_type('solutions', array(
+		'labels'             => array(
+			'name'               => 'Услуги и решения', // Основное название типа записи
+			'singular_name'      => 'Услуга', // отдельное название записи типа Book
+			'add_new'            => 'Добавить новую',
+			'all_items'          => 'Все услуги и решения',
+			'add_new_item'       => 'Добавить новую услугу',
+			'edit_item'          => 'Редактировать услугу',
+			'new_item'           => 'Новая услуга',
+			'view_item'          => 'Посмотреть услугу',
+			'search_items'       => 'Найти услугу',
+			'not_found'          => 'Услуг не найдено',
+			'not_found_in_trash' => 'В корзине услуг не найдено',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Услуги и решения'
+		),
+		'public' => true,
+		'supports' => array(
+			'title', 'editor', 'thumbnail','custom-fields'
+		),
+		'menu_position' => 20
+	));
+
+	register_post_type('directions', array(
+		'labels'             => array(
+			'name'               => 'Направления', // Основное название типа записи
+			'singular_name'      => 'Направление', // отдельное название записи типа Book
+			'add_new'            => 'Добавить новое',
+			'all_items'          => 'Все Направления',
+			'add_new_item'       => 'Добавить новое направление',
+			'edit_item'          => 'Редактировать направление',
+			'new_item'           => 'Новое направлене',
+			'view_item'          => 'Посмотреть направление',
+			'search_items'       => 'Найти направление',
+			'not_found'          => 'направлений не найдено',
+			'not_found_in_trash' => 'В корзине направлений не найдено',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Направления'
+		),
+		'public' => true,
+		'supports' => array(
+			'title', 'editor', 'thumbnail','custom-fields'
+		),
+		'menu_position' => 21
+	));
+
+	register_post_type('industries', array(
+		'labels'             => array(
+			'name'               => 'Отрасли', // Основное название типа записи
+			'singular_name'      => 'Отрасль', // отдельное название записи типа Book
+			'add_new'            => 'Добавить новую',
+			'all_items'          => 'Все Отрасли',
+			'add_new_item'       => 'Добавить новую отрасль',
+			'edit_item'          => 'Редактировать отрасль',
+			'new_item'           => 'Новая отрасль',
+			'view_item'          => 'Посмотреть отрасль',
+			'search_items'       => 'Найти отрасль',
+			'not_found'          => 'отраслей не найдено',
+			'not_found_in_trash' => 'В корзине отраслей не найдено',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Отрасли'
+		),
+		'public' => true,
+		'supports' => array(
+			'title', 'editor', 'thumbnail','custom-fields'
+		),
+		'menu_position' => 22
+	));
+	
+}
+
+add_action( 'init', 'wfmtest_custom_init' );
+
+
+
+
 
 add_theme_support('woocommerce');
 
