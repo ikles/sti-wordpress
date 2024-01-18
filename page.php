@@ -64,11 +64,10 @@ if( get_row_layout() == 'babout'): ?>
     </div>
   </section>
 <? endif; ?> 
-
 <?if( get_row_layout() == 'resitems'): ?>
 <section class="resitems">
-    <div class="contain">
-  <div class="res__items">
+  <div class="contain">
+    <div class="res__items">
       <?php if (get_sub_field('resitem')): ?>      
         <?
         $resitem_icons = get_sub_field('resitem');
@@ -83,7 +82,6 @@ if( get_row_layout() == 'babout'): ?>
   </section>
 <?php endif; ?>
 <?php endif; ?>
-
 <? if( get_row_layout() == 'direct'): ?>
   <section class="direct">      
     <div class="contain">
@@ -106,175 +104,125 @@ if( get_row_layout() == 'babout'): ?>
     </div>
   </section>
 <? endif; ?> 
+<? if( get_row_layout() == 'imp'): ?>
+  <section class="imp">      
+    <div class="contain">
+      <h2><?the_sub_field('title')?></h2>
+      <?the_sub_field('text')?>    
+      <div class="imp__row">
+        <?php if (get_sub_field('element')): ?>      
+          <? $element_icons = get_sub_field('element');
+          foreach($element_icons as $value): ?>                                              
+            <div class="imp__item">
+              <div class="imp__top">
+                <div class="imp__img-w"><img src="<? echo $value['icon'] ?>" class="imp__img" /></div>
+                <div class="imp__title"><? echo $value['title'] ?></div>
+              </div>
+              <? echo $value['text'] ?>
+            </div>
+          <? endforeach ?>      
+        <?php endif; ?>
+      </div>
+      <div class="imp__btn-w">
+        <?php if (get_sub_field('btn')): ?>
+          <a href="<?the_sub_field('btn_link')?>" class="btn"><?the_sub_field('btn')?></a>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+<? endif; ?>
+<? if( get_row_layout() == 'partners'): ?>
+  <section class="tabs-partners">
+    <div class="contain">
+      <div class="tabs partners__tabs">
+        <ul class="tabs__list">
+          <li class="tabs__list-item active"><?the_sub_field('title1')?></li>
+          <li class="tabs__list-item"><?the_sub_field('title2')?></li>
+        </ul>
+        <ul class="tabs__content-list">
+          <li class="tabs__content-list-item active">
+            <div class="partners__row">
+              <?php if (get_sub_field('list_1')): ?>      
+                <? $list_icons = get_sub_field('list_1');
+                foreach($list_icons as $value): ?>                                    
+                  <a href="<? echo $value['link'] ?>" class="partners__item">
+                    <img src="<? echo $value['logo'] ?>" />
+                  </a>
+                <? endforeach ?>      
+              <?php endif; ?>             
+            </div>
+          </li>
+          <li class="tabs__content-list-item">
+            <div class="partners__row">
+              <?php if (get_sub_field('list_2')): ?>      
+                <? $list_icons = get_sub_field('list_2');
+                foreach($list_icons as $value): ?>                                    
+                  <a href="<? echo $value['link'] ?>" class="partners__item">
+                    <img src="<? echo $value['logo'] ?>" />
+                  </a>
+                <? endforeach ?>      
+              <?php endif; ?>               
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+<? endif; ?>
+<? if( get_row_layout() == 'row'): ?>
+  <div class="section__row">
+    <div class="contain">
+      <div class="row">
+        <div class="col-50">
+          <?php if (get_sub_field('where') == 'left'): ?>
+            <div class="sol__bl">
+            <?php endif; ?>
+            <?php if (get_sub_field('where') == 'all'): ?>
+              <div class="sol__bl">
+              <?php endif; ?>
+              <?the_sub_field('left')?> 
+              <?php if (get_sub_field('where') == 'all'): ?>
+              </div>
+            <?php endif; ?>
+            <?php if (get_sub_field('where') == 'left'): ?>
+            </div>
+          <?php endif; ?>
+        </div>
+        <div class="col-50">
+          <?php if (get_sub_field('where') == 'right'): ?>
+            <div class="sol__bl">
+            <?php endif; ?>
+            <?php if (get_sub_field('where') == 'all'): ?>
+              <div class="sol__bl">
+              <?php endif; ?>
+              <?the_sub_field('right')?>          
+              <?php if (get_sub_field('where') == 'all'): ?>
+              </div>
+            <?php endif; ?>
+            <?php if (get_sub_field('where') == 'right'): ?>
+            </div>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  </div>
+<? endif; ?>
+<? if( get_row_layout() == 'h5'): ?>
+  <section class="editor">
+    <div class="contain">
+      <?the_sub_field('title')?>
+    </div>
+  </section>
+<? endif; ?>
+<? if( get_row_layout() == 'table'): ?>
+  <section class="tables">
+    <div class="contain">
+      <?the_sub_field('title_subtitle')?>      
+    </div>  
+  </section>
+<? endif; ?>
 <!--end while-->
 <? endwhile; else : /*echo 'макетов не найдено';*/ endif; ?>
 <!--end while-->
-
-
-
-
-<section class="imp">      
-  <div class="contain">
-    <h2>Импортозамеще<wbr/>ние в ИТ</h2>
-    <p>
-      <a href="">ИТ решения</a>, системы и инструменты, которые способны прямо сейчас решить самые горящие задачи по замещению западных приложений. Они помогут не потерять в устойчивости бизнеса, продолжить критично важные
-      процессы и поддержать бесперебойную работу.
-    </p>
-    <div class="imp__row">
-      <div class="imp__item">
-        <div class="imp__top">
-          <div class="imp__img-w"><img src="<? bloginfo('template_url') ?>/img/imp-1.svg" class="imp__img" /></div>
-          <div class="imp__title">Проанализируем ИТ-инфраструктуру</div>
-        </div>
-        <p>Проведем аудит существующего ИТ-ландшафта, чтобы понять, какие системы перспективно развивать и поддерживать, а какие — заменять на российские.</p>
-      </div>
-      <div class="imp__item">
-        <div class="imp__top">
-          <div class="imp__img-w"><img src="<? bloginfo('template_url') ?>/img/imp-2.svg" class="imp__img" /></div>
-          <div class="imp__title">Подберем российские аналоги ПО и «железа»</div>
-        </div>
-        <p>Сформируем целевую архитектуру и программу проектов с четким таймингом и приоритетами.</p>
-      </div>
-      <div class="imp__item">
-        <div class="imp__top">
-          <div class="imp__img-w"><img src="<? bloginfo('template_url') ?>/img/imp-3.svg" class="imp__img" /></div>
-          <div class="imp__title">Обеспечим перевнедрение, настройку и запуск систем</div>
-        </div>
-        <p>Создадим решения на базе отечественного ПО и оборудования, перенесем данные, настроим интеграции и обучим пользователей.</p>
-      </div>
-    </div>
-    <div class="imp__btn-w">
-      <a href="" class="btn">Отправить запрос</a>
-    </div>
-  </div>
-</section>
-<section class="tabs-partners">
-  <div class="contain">
-    <div class="tabs partners__tabs">
-      <ul class="tabs__list">
-        <li class="tabs__list-item active">Партнеры</li>
-        <li class="tabs__list-item">Заказчики</li>
-      </ul>
-      <ul class="tabs__content-list">
-        <li class="tabs__content-list-item active">
-          <div class="partners__row">
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-1.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-2.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-3.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-4.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-5.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-6.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-7.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-8.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-9.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-10.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-11.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-12.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-13.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-14.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-15.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-16.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-17.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-18.png" />
-            </a>
-          </div>
-        </li>
-        <li class="tabs__content-list-item">
-          <div class="partners__row">
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-4.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-5.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-6.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-7.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-8.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-9.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-7.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-8.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-9.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-10.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-11.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-12.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-13.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-14.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-15.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-16.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-17.png" />
-            </a>
-            <a href="" class="partners__item">
-              <img src="<? bloginfo('template_url') ?>/img/logo-18.png" />
-            </a>               
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section> 
 </main>
 <?php get_footer(); ?>

@@ -1376,6 +1376,21 @@ footer {
 .val__col {
   margin-bottom: 48px;
   padding: 0 15px; }
+  .val__col-50:nth-child(1) .val__item,
+  .val__col:nth-child(1) .val__item {
+    background: #EAF7FD; }
+  .val__col-50:nth-child(2) .val__item,
+  .val__col:nth-child(2) .val__item {
+    background: #C7E8F9; }
+  .val__col-50:nth-child(3) .val__item,
+  .val__col:nth-child(3) .val__item {
+    background: #8DD3F5; }
+  .val__col-50:nth-child(4) .val__item,
+  .val__col:nth-child(4) .val__item {
+    background: #fff; }
+  .val__col-50:nth-child(5) .val__item,
+  .val__col:nth-child(5) .val__item {
+    background: #CDF4F7; }
 
 .val__col {
   width: 25%; }
@@ -1752,6 +1767,18 @@ footer {
   .sol .row + .row {
     margin-top: 141px; }
 
+.section__row:nth-child(1) {
+  padding-top: 62px; }
+
+.section__row + .section__row {
+  margin-top: 141px; }
+
+.section__row .col-50 h2 {
+  margin-top: 50px; }
+
+.section__row .col-50 .sol__bl h2 {
+  margin-top: 0; }
+
 .sol__title {
   color: black;
   font-size: 48px;
@@ -2088,26 +2115,27 @@ h5 {
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 30px 0px;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 30px 0px;
   height: 100%; }
-  .sol__bl ul li {
-    margin-bottom: 10px;
-    color: black;
-    font-size: 28px;
-    line-height: 1.4;
-    padding-left: 18px;
-    position: relative; }
-    .sol__bl ul li:before {
-      content: "";
-      width: 3px;
-      height: 3px;
-      background-color: #000;
-      -webkit-border-radius: 50%;
-              border-radius: 50%;
-      display: block;
-      position: absolute;
-      top: 13px;
-      left: 0;
-      line-height: 1;
-      font-size: 30px; }
+
+.col-50 ul li {
+  margin-bottom: 10px;
+  color: black;
+  font-size: 28px;
+  line-height: 1.4;
+  padding-left: 18px;
+  position: relative; }
+  .col-50 ul li:before {
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: #000;
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: 0;
+    line-height: 1;
+    font-size: 30px; }
 
 .tables {
   padding: 65px 0; }
@@ -2181,8 +2209,10 @@ h5 {
           align-items: center; }
 
 @media (max-width: 1830px) {
-  .sol__bl ul li {
+  .col-50 ul li {
     font-size: 20px; }
+  .section__row + .section__row {
+    margin-top: 90px; }
   .sol .row + .row {
     margin-top: 90px; }
   .tables table td p,
@@ -2335,6 +2365,13 @@ h5 {
   .conts,
   section {
     padding: 40px 0 !important; }
+  .section__row:nth-child(1) {
+    padding-top: 40px; }
+  div + section.editor,
+  section + section.editor {
+    padding-bottom: 0 !important; }
+  section.editor + section {
+    padding-top: 0 !important; }
   .imp__top {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2963,6 +3000,17 @@ h5 {
     padding-top: 0; }
     .sol .col-50 + .col-50 {
       margin-top: 40px; }
+  .section__row .row {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+  .section__row .col-50 {
+    width: 100%;
+    padding-top: 0; }
+    .section__row .col-50 + .col-50 {
+      margin-top: 40px; }
+  .section__row + .section__row {
+    margin-top: 50px; }
   .sol .row + .row {
     margin-top: 50px; }
   .tables table td {
@@ -3017,6 +3065,8 @@ h5 {
   .conts,
   section {
     padding: 30px 0 !important; }
+  .section__row:nth-child(1) {
+    padding-top: 30px; }
   .imp__btn-w .btn {
     padding: 0 57px; }
   .partners__tabs .tabs__list-item {
@@ -3084,10 +3134,13 @@ h5 {
   .rel__item {
     width: 100%;
     padding-top: 120px; }
-  .sol__bl ul li {
+  .col-50 ul li {
     font-size: 18px; }
   .sol .row + .row,
   .sol .col-50 + .col-50 {
+    margin-top: 30px; }
+  .section__row .col-50 + .col-50,
+  .section__row + .section__row {
     margin-top: 30px; }
   .news__item {
     padding: 25px 24px 32px 29px; }
@@ -3173,9 +3226,9 @@ h5 {
   h2 {
     font-size: 28px;
     margin-bottom: 22px; }
-  .sol__bl ul li {
+  .col-50 ul li {
     font-size: 16px; }
-    .sol__bl ul li:before {
+    .col-50 ul li:before {
       top: 9px; }
   .news__col {
     width: 100%; }
@@ -3383,18 +3436,6 @@ h5 {
   body, body > * {
     /*width: auto;
     min-width: 1920px;*/ } }
-
-.blu-1 {
-  background: #EAF7FD; }
-
-.blu-2 {
-  background: #C7E8F9; }
-
-.blu-3 {
-  background: #8DD3F5; }
-
-.blu-4 {
-  background: #CDF4F7; }
 
 body.active {
   background: url("../img/1920.jpg") no-repeat top -10px center; }

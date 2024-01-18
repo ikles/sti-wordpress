@@ -7,7 +7,8 @@ add_theme_support('post-thumbnails');
 function register_my_menus() {
 	register_nav_menus(
 		array(
-			'top-mnu' => __( 'Footer Menu 1' ),
+			'top-mnu' => __( 'Top Menu 1' ),
+			'top-mnu2' => __( 'Top Menu 2' ),
 			'b-mnu1' => __( 'Footer Menu 1' ),
 			'b-mnu2' => __( 'Footer Menu 2' )      
 		)
@@ -16,12 +17,12 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 //Вывод в шаблоне:
-//<?php wp_nav_menu(array( 'theme_location' => 'b-mnu2', 'menu_class' => 'link-list cls2' ));
+//<?php wp_nav_menu(array( 'theme_location' => 'top-mnu', 'menu_class' => 'link-list cls2' ));
 
 
 register_sidebar(array(
-	'name' => 'Join now',
-	'id' => 'join-now',
+	'name' => 'Телефон',
+	'id' => 'phone',
 	'description' => '',
 	'before_widget' => '',
 	'after_widget' => '',
@@ -34,6 +35,13 @@ function p_a($arr) {
 	echo '<pre>';
 	print_r($arr);
 	echo '</pre>';
+}
+
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
 }
 
 

@@ -1198,6 +1198,30 @@ footer {
 .val__col {
   margin-bottom: 48px;
   padding: 0 15px;
+  &:nth-child(1) {
+    .val__item {
+    background: #EAF7FD;      
+    }
+  }
+  &:nth-child(2) {
+    .val__item {
+    background: #C7E8F9;      
+    }
+  }
+  &:nth-child(3) {
+    .val__item {
+    background: #8DD3F5;      
+    }
+  }
+  &:nth-child(4) {
+    .val__item {
+    background: #fff;      
+    }
+  }&:nth-child(5) {
+    .val__item {
+    background: #CDF4F7;      
+    }
+  }
 }
 
 .val__col {
@@ -1604,9 +1628,27 @@ footer {
 
 
 
+.section__row {
+  &:nth-child(1) {
+    padding-top: 62px;
+  }  
+  + .section__row {
+    margin-top: 141px;
+  }
+}
 
-
-
+.section__row {
+  .col-50 {
+    h2 {
+      margin-top: 50px;
+    }
+    .sol__bl {
+      h2 {
+        margin-top: 0;
+      }
+    }
+  }
+}
 
 
 .sol__title {
@@ -1940,6 +1982,9 @@ h5 {
   background: rgb(234, 247, 253);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 30px 0px;
   height: 100%;
+}
+
+.col-50 {
   ul {
     li {
       margin-bottom: 10px;
@@ -1962,7 +2007,7 @@ h5 {
         font-size: 30px;
       }  
     }    
-  }
+  }  
 }
 
 .tables {
@@ -2056,8 +2101,11 @@ h5 {
 
 @media (max-width : 1830px) {
 
-  .sol__bl ul li {
+  .col-50 ul li {
     font-size: 20px;
+  }
+  .section__row + .section__row {
+    margin-top: 90px;
   }
   .sol .row + .row {
     margin-top: 90px;
@@ -2263,6 +2311,20 @@ h5 {
   .conts,
   section {
     padding: 40px 0 $i;
+  }
+  .section__row:nth-child(1) {
+    padding-top: 40px;
+  }
+  div,
+  section {
+    + section.editor {
+      padding-bottom: 0 $i;
+    }
+  }
+  section.editor {
+    + section {
+      padding-top: 0 $i;
+    }
   }
   .imp__item {    }
   .imp__top {    
@@ -2929,9 +2991,32 @@ p,
       }
     }
   }
+  
+  .section__row {
+    .row {      
+      flex-wrap: wrap;
+    }
+    .col-50 {
+      width: 100%;
+      padding-top: 0;
+      + .col-50 {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .section__row {
+    + .section__row {
+      margin-top: 50px;
+    }
+  }
+
   .sol .row + .row {
     margin-top: 50px;
   }
+
+
+
   .tables table td {
     padding: 25px 20px;  
 
@@ -2993,6 +3078,9 @@ p,
   .conts,
   section {
     padding: 30px 0 $i;
+  }
+  .section__row:nth-child(1) {
+    padding-top: 30px;
   }
 
   .imp__btn-w .btn {
@@ -3086,13 +3174,19 @@ p,
     width: 100%;  
     padding-top: 120px;
   }
-  .sol__bl ul li {
+  .col-50 ul li {
     font-size: 18px;
   }
   .sol .row + .row,
   .sol .col-50 + .col-50 {
     margin-top: 30px;
   }
+
+  .section__row .col-50 + .col-50,
+  .section__row + .section__row {
+    margin-top: 30px;
+  }
+
   .news__item {
     padding: 25px 24px 32px 29px;
   }
@@ -3202,7 +3296,7 @@ p,
     font-size: 28px;
     margin-bottom: 22px;
   }
-  .sol__bl ul li {
+  .col-50 ul li {
     font-size: 16px;
     &:before {
       top: 9px;
@@ -3415,18 +3509,7 @@ p,
   }
 }
 
-.blu-1 {
-  background: #EAF7FD;
-}
-.blu-2 {
-  background: #C7E8F9;
-}
-.blu-3 {
-  background: #8DD3F5;
-}
-.blu-4 {
-  background: #CDF4F7;
-}
+
 
 body {  
   &.active {
