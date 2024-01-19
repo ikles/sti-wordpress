@@ -19,6 +19,14 @@ jQuery(document).ready(function( $ ) {
     $('.header__col').toggleClass("open");    
   });
 
+   $('.top__mnu-2 li .sub-menu').wrap('<div class="mnu__cild"></div>');
+   $('.top__mnu-2 li .sub-menu').closest('.mnu__cild').before('<i></i>');
+
+  $('li.menu-item-has-children i').click(function () {
+    $(this).parent().toggleClass('open');
+    $(this).next('.mnu__cild').toggleClass('open');
+  });
+
   $('.li__parent i').click(function () {
     $(this).parent().toggleClass('open');
     $(this).next('.mnu__cild').toggleClass('open');
@@ -52,7 +60,10 @@ jQuery(document).ready(function( $ ) {
   }
 
 
+ 
 
+//$('.top__mnu-2 li.menu-item-has-children').append('<i></i>')
+    
 
 
 /************************************/

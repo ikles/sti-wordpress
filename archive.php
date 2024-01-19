@@ -1,27 +1,13 @@
 <?php get_header(); ?>
 
-<div class="blog">  
-  <div class="bread">
-    <div class="contain">
-      <div class="bread-w">
+
         <?php the_breadcrumb(); ?>
-      </div>
-    </div>
-  </div><!--bread-->
-  <div class="blog-head">
-    <div class="contain">
+
       <?php
       $parent_id = get_queried_object_id();      
       ?>      
-      <h1><?php echo single_cat_title(); ?></h1>
-    </div>
-  </div><!--blog-head-->
-  <div class="blog-sort-search">
-    <div class="contain">
-      <div class="sort-w">
-        <div class="sort-wrap">
-          <div class="sort-span"><div>Show me: </div> <span></span></div>
-          <ul class="sort">
+     <?php echo single_cat_title(); ?>
+
             <?php             
     //link to news cat    
     //$news_cat_link = get_category_link($parent_id);
@@ -33,20 +19,9 @@
             );
             ?>
             <?php wp_list_categories( $args ); ?>
-          </ul><!--sort-->
-        </div><!--sort-wrap-->
-        <div class="search-w">
-          <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">            
-            <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />            
-            <input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />
-          </form>
-        </div>
-      </div><!--sort-w-->
-    </div><!--contain-->
-  </div><!--blog-sort-search-->
-  <div class="blog-items">  
-    <div class="blog-w">
-      <div class="blog-news-items">
+      
+
+
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>   
           <?php
           echo '<div class="news-item"><div class="contain"><div class="blog-item-w">';
@@ -85,15 +60,10 @@
          var max_pages = '<?php echo $wp_query->max_num_pages; ?>';
        </script>
 
-       <div class="more_block">      
-        <div class="btn_more_blocks contain" id="true_loadmore"><span>Load more posts</span></div>      
-      </div>
+
     <?php endif; ?>     
 
-  </div><!--news-items-->
-</div>
-</div><!--blog-cat-->
-</div><!--blog-->
+
 <?php get_footer(); ?>
 
 

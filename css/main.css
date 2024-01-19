@@ -588,14 +588,14 @@ body.touch .sub-sub-menu__list.open {
   margin-top: 29px; }
   .top__mnu-2 > li + li {
     margin-left: 116px; }
-  .top__mnu-2 > li.li__parent {
+  .top__mnu-2 > li.current-menu-parent, .top__mnu-2 > li.menu-item-has-children, .top__mnu-2 > li.li__parent {
     background-image: url("../img/mnu-arrow.svg");
     background-repeat: no-repeat;
     background-position: right 0px center;
     padding-right: 30px;
     position: relative; }
     @media (any-hover: hover) {
-      .top__mnu-2 > li.li__parent:hover .mnu__cild {
+      .top__mnu-2 > li.current-menu-parent:hover .mnu__cild, .top__mnu-2 > li.menu-item-has-children:hover .mnu__cild, .top__mnu-2 > li.li__parent:hover .mnu__cild {
         opacity: 1;
         visibility: visible; } }
   .top__mnu-2 > li a {
@@ -704,6 +704,8 @@ h3 {
   padding-top: 177px; }
   .header a {
     text-decoration: none; }
+  .header.auto {
+    height: auto; }
 
 .banner__inn {
   display: -webkit-box;
@@ -727,7 +729,8 @@ h3 {
   color: #0773bd;
   font-size: 48px;
   font-weight: 500;
-  line-height: 1.2; }
+  line-height: 1.2;
+  margin-bottom: 25px; }
 
 .banner__upp h1 {
   line-height: 122%; }
@@ -1525,19 +1528,19 @@ footer {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
-
-.imp__ul {
-  width: 1052px; }
-  .imp__ul li {
-    background-image: url("../img/check-1.svg");
-    background-repeat: no-repeat;
-    background-position: left top;
-    color: black;
-    font-size: 28px;
-    line-height: 1.4;
-    padding-left: 86px; }
-    .imp__ul li + li {
-      margin-top: 50px; }
+  .imp__w ul {
+    width: 1052px; }
+    .imp__w ul li {
+      background-image: url("../img/check-1.svg");
+      background-repeat: no-repeat;
+      background-position: left top;
+      color: black;
+      font-size: 28px;
+      line-height: 1.4;
+      min-height: 70px;
+      padding-left: 86px; }
+      .imp__w ul li + li {
+        margin-top: 50px; }
 
 .platform {
   padding-top: 70px;
@@ -1656,6 +1659,16 @@ footer {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column; }
+  .get__item:nth-child(1) {
+    background: #EAF7FD; }
+  .get__item:nth-child(2) {
+    background: #C7E8F9; }
+  .get__item:nth-child(3) {
+    background: #C7E8F9; }
+  .get__item:nth-child(4) {
+    background: #fff; }
+  .get__item:nth-child(5) {
+    background: #CDF4F7; }
   .get__item p {
     margin-top: 26px;
     color: black;
@@ -1802,8 +1815,8 @@ footer {
     margin-top: 57px; }
 
 .sol__img {
-  width: 146px;
-  height: 146px;
+  width: 142px;
+  height: 142px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1823,7 +1836,10 @@ footer {
           flex: 0 0 auto; }
 
 .sol__img > img {
-  max-width: 100%; }
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  width: auto; }
 
 .sol__col {
   -webkit-box-flex: 1;
@@ -1833,7 +1849,22 @@ footer {
   .sol__col li {
     color: black;
     font-size: 28px;
-    line-height: 1.4; }
+    line-height: 1.4;
+    position: relative;
+    padding-left: 18px; }
+    .sol__col li:before {
+      content: "";
+      width: 3px;
+      height: 3px;
+      background-color: #000;
+      -webkit-border-radius: 50%;
+              border-radius: 50%;
+      display: block;
+      position: absolute;
+      top: 13px;
+      left: 0;
+      line-height: 1;
+      font-size: 30px; }
   .sol__col p {
     color: black;
     font-size: 28px;
@@ -1996,6 +2027,34 @@ footer {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between; }
+
+.content {
+  padding: 75px 0 60px 0; }
+  .content ul li {
+    position: relative;
+    padding-left: 18px; }
+    .content ul li:before {
+      content: "";
+      width: 3px;
+      height: 3px;
+      background-color: #000;
+      -webkit-border-radius: 50%;
+              border-radius: 50%;
+      display: block;
+      position: absolute;
+      top: 13px;
+      left: 0;
+      line-height: 1;
+      font-size: 30px; }
+  .content ol,
+  .content ul {
+    margin-top: 45px; }
+    .content ol li,
+    .content ul li {
+      margin-bottom: 10px;
+      color: black;
+      font-size: 28px;
+      line-height: 1.4; }
 
 .rev__img > img {
   width: 100%;
@@ -2265,7 +2324,7 @@ h5 {
   .plus__r p,
   .plus__desc,
   .banner p,
-  .imp__ul li,
+  .imp__w ul li,
   blockquote,
   .bloq,
   p {
@@ -2486,7 +2545,7 @@ h5 {
             align-items: flex-start; }
   .imp__bg {
     background: none; }
-  .imp__ul {
+  .imp__w ul {
     width: 100%; }
   .stor__row {
     gap: 20px;
@@ -2711,6 +2770,7 @@ h5 {
   .top__phone {
     margin-left: unset;
     margin-top: 35px; }
+  .top__mnu-2 li.menu-item-has-children,
   .top__mnu-2 > li.li__parent {
     width: 100%;
     display: -webkit-box;
@@ -2720,11 +2780,13 @@ h5 {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; }
+    .top__mnu-2 li.menu-item-has-children a,
     .top__mnu-2 > li.li__parent a {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1; }
+    .top__mnu-2 li.menu-item-has-children + li,
     .top__mnu-2 > li.li__parent + li {
       margin-left: unset; }
   .mnu__cild li a {
@@ -2741,13 +2803,16 @@ h5 {
       padding: 0;
       -webkit-box-shadow: none;
               box-shadow: none; }
+  .top__mnu-2 li.menu-item-has-children,
   .top__mnu-2 > li.li__parent {
     background: none;
     padding: 0; }
+    .top__mnu-2 li.menu-item-has-children.open i,
     .top__mnu-2 > li.li__parent.open i {
       -webkit-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
               transform: rotate(180deg); }
+    .top__mnu-2 li.menu-item-has-children i,
     .top__mnu-2 > li.li__parent i {
       position: absolute;
       right: -34px;
@@ -2778,7 +2843,7 @@ h5 {
             flex-wrap: wrap; }
   .header {
     padding-top: 110px; }
-  .imp__ul li {
+  .imp__w ul li {
     min-height: 70px; }
   .platform__img img {
     -webkit-border-radius: 15px;
@@ -2960,10 +3025,10 @@ h5 {
         margin-top: 30px; }
   .val__row {
     padding-bottom: 40px; }
-  .imp__ul li {
+  .imp__w ul li {
     background-size: 40px;
     padding-left: 56px; }
-  .imp__ul li + li {
+  .imp__w ul li + li {
     margin-top: 30px; }
   .platform__w {
     -webkit-flex-wrap: wrap;

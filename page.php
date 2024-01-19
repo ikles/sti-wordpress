@@ -1,34 +1,11 @@
+<?php
+/*
+Template Name: Шаблон для корневых страниц
+Template Post Type: post, page, solutions, directions, industries, projects, news
+*/
+?>
 <?php wp_reset_postdata(); ?>
-<?php get_header(); ?>  
-<img src="<? the_field('banner_bg');?>" alt="" class="header__bg">
-<div class="banner">
-  <div class="contain banner__inn">
-    <h1><?the_field('banner_title');?></h1>
-    <div class="banner_subtitle"><?the_field('banner_subtitle');?></div>            
-    <?php if (get_field('banner_subtitle_2')): ?>
-      <h4><?the_field('banner_subtitle_2');?></h4>
-    <?php endif; ?>
-    <?php if (get_field('banner_text')): ?>
-      <?the_field('banner_text');?>
-    <?php endif; ?>
-    <?php if (get_field('banner_btn_text')): ?>
-      <a href="<?the_field('banner_btn_link');?>" class="btn"><?the_field('banner_btn_text');?></a>
-    <?php endif; ?>    
-    <?php if (get_field('banner_icons')): ?>
-      <div class="topcats__row">
-        <?
-        $banner_icons = get_field('banner_icons');
-        foreach($banner_icons as $banner_id): ?>          
-          <a href="<? the_permalink($banner_id); ?>">
-            <div class="topcats__img-w"><img src="<? echo get_the_post_thumbnail_url($banner_id, 'large'); ?>" /></div>
-            <div class="topcats__text"><? echo get_the_title($banner_id); ?></div>
-          </a>
-        <? endforeach ?>
-      </div>
-    <?php endif; ?>    
-  </div>
-</div>  
-</header>
+<?php get_header(); ?>
 <main class="main">
   <?
 // проверяем есть ли данные в гибком содержании
@@ -112,7 +89,7 @@ if( get_row_layout() == 'babout'): ?>
       <div class="imp__row">
         <?php if (get_sub_field('element')): ?>      
           <? $element_icons = get_sub_field('element');
-          foreach($element_icons as $value): ?>                                              
+          foreach($element_icons as $value): ?>         
             <div class="imp__item">
               <div class="imp__top">
                 <div class="imp__img-w"><img src="<? echo $value['icon'] ?>" class="imp__img" /></div>
@@ -221,6 +198,181 @@ if( get_row_layout() == 'babout'): ?>
     </div>  
   </section>
 <? endif; ?>
+<? if( get_row_layout() == 'uniq'): ?>
+  <section class="uniq">      
+    <div class="contain">
+      <h2 class="h2"><?the_sub_field('title')?></h2>
+      <div class="uniq__w">
+        <?php if (get_sub_field('block')): ?>      
+          <? $block_icons = get_sub_field('block');
+          foreach($block_icons as $value): ?>
+            <!--get_sub_field('width') == 'uz'-->
+            <div class="<? if ($value['width'] == 'uz') echo 'val__col' ?><? if ($value['width'] == 'shir') echo 'val__col-50' ?>">
+              <div class="val__item">
+                <div><img src="<? echo $value['icon'] ?>"></div>
+                <span><? echo $value['title'] ?></span>
+                <p><? echo $value['text'] ?></p>
+              </div>   
+            </div>
+          <? endforeach ?>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+<? endif; ?>
+
+<? if( get_row_layout() == 'imp2'): ?>
+  <section class="imp">      
+    <div class="contain">
+      <h2><?the_sub_field('title1')?></h2>
+      <?the_sub_field('tekst')?>
+    </div>    
+    <div class="imp__bg">
+      <div class="contain">
+        <div class="imp__w">
+          <?the_sub_field('list')?>
+        </div>
+      </div>
+    </div>
+  </section>
+<? endif; ?>
+
+<? if( get_row_layout() == 'platform'): ?>
+  <section class="platform">
+    <div class="contain">
+      <div class="platform__w">
+        <div class="platform__l">
+          <h2><?php the_sub_field('title'); ?></h2>
+          <p><?php the_sub_field('text'); ?></p>
+          <a href="<?php the_sub_field('btn_link'); ?>" class="platform__btn"><?php the_sub_field('btn_txt'); ?></a>
+        </div>
+        <div class="platform__img">
+          <img src="<?php the_sub_field('img'); ?>">
+        </div>
+      </div>
+    </div>
+  </section>
+<? endif; ?>
+
+
+<? if( get_row_layout() == 'stor'): ?>
+  <section class="stor">
+    <div class="contain">
+      <h2><?php the_sub_field('title'); ?></h2>
+      <div class="stor__row">
+
+        <?php if (get_sub_field('stors')): ?>      
+          <? $stor_icons = get_sub_field('stors');
+          foreach($stor_icons as $value): ?>
+            <div class="stor__item">
+              <div class="stor__title"><? echo $value['title'] ?></div>
+              <p><? echo $value['text'] ?></p>
+            </div>
+          <? endforeach ?>      
+        <?php endif; ?>
+
+        
+      </div>
+    </div>
+  </section>
+<? endif; ?>
+
+
+
+<? if( get_row_layout() == 'get'): ?>
+  <section class="get">      
+    <div class="contain">
+      <h2><?php the_sub_field('title'); ?></h2>
+      <div class="get__row">
+        <?php if (get_sub_field('element')): ?>      
+          <? $element_icons = get_sub_field('element');
+          foreach($element_icons as $value): ?>
+            <div class="get__item">
+              <div class="get__img"><img src="<? echo $value['icon'] ?>"></div>
+              <div class="get__title"><? echo $value['title'] ?></div>
+              <? echo $value['text'] ?>
+            </div>
+          <? endforeach ?>      
+        <?php endif; ?>
+
+
+      </div>
+      <div class="get__btn-w">
+        <a href="" class="get__btn">Узнать больше</a>
+      </div>
+    </div>
+  </section>
+<? endif; ?>
+
+<? if( get_row_layout() == 'catlist'): ?>
+
+  <section class="sol">      
+    <div class="contain">
+
+      <?php if (get_sub_field('list')): ?>      
+        <?
+        $list_icons = get_sub_field('list');
+        foreach($list_icons as $list_id): ?>          
+          <div class="sol__it">
+            <a href="<? the_permalink($list_id); ?>" class="sol__img">
+              <img src="<? echo get_the_post_thumbnail_url($list_id, 'large'); ?>" />
+            </a>
+            <div class="sol__col">
+              <a href="<? the_permalink($list_id); ?>" class="sol__title">
+                <? echo get_the_title($list_id); ?>
+              </a>
+              <? the_field('direct_desc', $list_id)?>
+            </div>
+          </div>
+        <? endforeach ?>      
+      <?php endif; ?>
+
+
+    </div>
+  </section>
+
+
+<? endif; ?>
+
+<? if( get_row_layout() == 'customers'): ?>
+
+  <section class="customers">
+    <div class="contain">
+      <h2><?php the_sub_field('title'); ?></h2>
+      <div class="partners__row">
+        <?php if (get_sub_field('customer')): ?>      
+          <? $customer_icons = get_sub_field('customer');
+          foreach($customer_icons as $value): ?>            
+            <a href="<? echo $value['link'] ?>" class="partners__item">
+              <img src="<? echo $value['logo'] ?>">
+            </a>           
+          <? endforeach ?>      
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+<? endif; ?>
+
+<? if( get_row_layout() == 'impttttttttttttttt'): ?>
+<? endif; ?>
+
+<? if( get_row_layout() == 'impttttttttttttttt'): ?>
+<? endif; ?>
+
+<? if( get_row_layout() == 'impttttttttttttttt'): ?>
+<? endif; ?>
+
+<? if( get_row_layout() == 'impttttttttttttttt'): ?>
+<? endif; ?>
+
+
+
+
+
 <!--end while-->
 <? endwhile; else : /*echo 'макетов не найдено';*/ endif; ?>
 <!--end while-->

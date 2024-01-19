@@ -114,13 +114,63 @@ function wfmtest_custom_init() {
 		),
 		'menu_position' => 22
 	));
+
+
+	register_post_type('news', array(
+		'labels'             => array(
+			'name'               => 'Новости', // Основное название типа записи
+			'singular_name'      => 'Новость', // отдельное название записи типа
+			'add_new'            => 'Добавить новую',
+			'all_items'          => 'Все Новости',
+			'add_new_item'       => 'Добавить новую Новость',
+			'edit_item'          => 'Редактировать Новость',
+			'new_item'           => 'Новая Новость',
+			'view_item'          => 'Посмотреть Новость',
+			'search_items'       => 'Найти Новость',
+			'not_found'          => 'Новостей не найдено',
+			'not_found_in_trash' => 'В корзине Новостей не найдено',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Новости'
+		),
+		'public' => true,
+		'supports' => array(
+			'title', 'editor', 'thumbnail','custom-fields'
+		),
+		'menu_position' => 23
+	));
+	register_post_type('projects', array(
+		'labels'             => array(
+			'name'               => 'Проекты', // Основное название типа записи
+			'singular_name'      => 'Проект', // отдельное название записи типа
+			'add_new'            => 'Добавить новую',
+			'all_items'          => 'Все Проекты',
+			'add_new_item'       => 'Добавить новый Проект',
+			'edit_item'          => 'Редактировать Проект',
+			'new_item'           => 'Новый Проект',
+			'view_item'          => 'Посмотреть Проект',
+			'search_items'       => 'Найти Проект',
+			'not_found'          => 'Проектов не найдено',
+			'not_found_in_trash' => 'В корзине Проектов не найдено',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Проекты'
+		),
+		'public' => true,
+		'supports' => array(
+			'title', 'editor', 'thumbnail','custom-fields'
+		),
+		'menu_position' => 24
+	));
+	//Проекты
 	
 }
 
 add_action( 'init', 'wfmtest_custom_init' );
 
 
-
+//Удаляем category из УРЛа категорий
+add_filter( 'category_link', function($a){
+	return str_replace( 'category/', '', $a );
+}, 99 );
 
 
 add_theme_support('woocommerce');
