@@ -285,13 +285,19 @@ body {
   font-size: 16px;
   position: relative;
   min-height: 100vh;
-  zoom: 1;
-  zoom: 0.7; }
+  /*zoom: 0.7;*/ }
   body.body-open {
     overflow: hidden; }
     body.body-open .top {
       background-color: #FFF; }
 
+/*
+solutions
+directions
+industries
+news
+projects
+*/
 .wrapper {
   width: 100%;
   margin-left: auto;
@@ -476,6 +482,7 @@ body.touch .sub-sub-menu__list.open {
       max-height: 300px; } }
 
 /*end top menu mnu*/
+input[type="submit"],
 .btn,
 *[class$="__btn"] {
   display: -webkit-inline-box;
@@ -681,6 +688,8 @@ body.touch .sub-sub-menu__list.open {
     margin-top: 30px; }
   .banner h1 {
     margin-bottom: 21px; }
+    .banner h1 + p {
+      margin-top: 30px; }
   .banner h3 {
     margin-top: 35px; }
   .banner p {
@@ -1157,6 +1166,9 @@ h2 {
 
 .customers {
   padding: 65px 0; }
+  @media (min-width: 1919px) {
+    .customers p {
+      line-height: 1.4; } }
 
 /*Футер*/
 .form-bg > img {
@@ -1306,11 +1318,29 @@ h2 {
   color: #595959;
   font-size: 20px;
   margin-bottom: 29px; }
+  .conts__form input[type="password"].wpcf7-not-valid,
+  .conts__form input[type="text"].wpcf7-not-valid,
+  .conts__form input.wpcf7-not-valid {
+    border: 2px solid red; }
+  .conts__form input[type="password"] + .wpcf7-not-valid-tip,
+  .conts__form input[type="text"] + .wpcf7-not-valid-tip,
+  .conts__form input + .wpcf7-not-valid-tip {
+    margin-bottom: 25px;
+    margin-top: -11px;
+    font-size: 16px; }
 
 .conts__form input[type="submit"], .conts__form button {
   padding-left: 20px;
   padding-right: 20px;
-  width: 100%; }
+  width: 100%;
+  background-color: #0773BD;
+  color: #fff;
+  margin-bottom: 0; }
+
+.wpcf7-response-output {
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 0; }
 
 .form-bg {
   width: 20px;
@@ -1729,6 +1759,11 @@ footer {
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 21px; }
+  .plus__desc p {
+    line-height: 1.4; }
+    @media (min-width: 1919px) {
+      .plus__desc p {
+        font-size: 32px; } }
 
 .plus__numbs {
   display: -webkit-box;
@@ -1768,7 +1803,8 @@ footer {
   padding-top: 70px;
   padding-bottom: 70px; }
 
-.rul__subtitle {
+.rul__subtitle,
+.rul h5 {
   color: #0773bd;
   font-size: 32px;
   font-weight: 700;
@@ -2083,7 +2119,7 @@ footer {
 .rev__item {
   width: 389px;
   margin: 0 112px; }
-  .rev__item a {
+  .rev__item a:not(.rev__name) {
     display: block;
     -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); }
@@ -2107,6 +2143,7 @@ footer {
   margin-bottom: 83px; }
 
 .rev__name {
+  display: block;
   color: #050404;
   font-size: 24px;
   font-weight: 500;
@@ -2313,6 +2350,7 @@ h5 {
   h4 {
     font-size: -webkit-calc(20px + (36 - 20) * ((100vw - 320px) / (1830 - 320)));
     font-size: calc(20px + (36 - 20) * ((100vw - 320px) / (1830 - 320))); }
+  .rul h5,
   .rul__subtitle,
   .sol__desc,
   h5 {

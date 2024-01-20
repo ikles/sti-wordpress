@@ -116,6 +116,7 @@ $('.eye-3').click(function (e) {
   });
 
 
+  $(".phone").mask("+7 (999) 999-99-99");
 
 
   var topPos = $('.top').offset().top; 

@@ -6,13 +6,27 @@ Template Post Type: page, post
 ?>
 <?php wp_reset_postdata(); ?>
 <?php get_header(); ?>  
-
 <main class="main">
   <section class="news">
     <div class="contain">
       <div class="news__list">
         <?php
-        $args = array( 'post_type' => 'news', 'posts_per_page' => 100 );
+
+        global $post;       
+        $post_type = $post->post_type;
+
+        if ($post->post_name == 'news') {
+          $args = array( 'post_type' => 'news', 'posts_per_page' => 100 );          
+        }
+        if ($post->post_name == 'projects') {
+          $args = array( 'post_type' => 'projects', 'posts_per_page' => 100 );          
+        }
+
+
+
+        //echo $post_type;
+
+
         $the_query = new WP_Query( $args );
         ?>
         <?php if ( $the_query->have_posts() ) : ?>
@@ -20,7 +34,7 @@ Template Post Type: page, post
             <div class="news__col">
               <a href="<? the_permalink(); ?>" class="news__item">
                 <div class="news__cont"><?php the_title(); ?></div>
-                <div class="news__date">27 ноября, 2023</div>
+                <div class="news__date"><?php echo get_the_date(); ?></div>
               </a>      
             </div>            
             <?php wp_reset_postdata(); ?>
@@ -30,5 +44,4 @@ Template Post Type: page, post
     </div>
   </section>    
 </main>
-
 <?php get_footer(); ?>

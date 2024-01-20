@@ -66,9 +66,8 @@ body {
   font-weight: normal;
   font-size: 16px;
   position: relative;
-  min-height: 100vh;
-  zoom: 1;
-  zoom: 0.7;
+  min-height: 100vh;  
+  /*zoom: 0.7;*/
   &.body-open {
     overflow: hidden;
     .top {
@@ -77,7 +76,13 @@ body {
   }
 }
 
-
+/*
+solutions
+directions
+industries
+news
+projects
+*/
 
 .wrapper {
   width: 100%;
@@ -301,6 +306,7 @@ body {
 
 /*end top menu mnu*/
 
+input[type="submit"],
 .btn,
 *[class$="__btn"] {
   display: inline-flex;
@@ -505,6 +511,9 @@ body {
   }
   h1 {
     margin-bottom: 21px;
+    + p {
+      margin-top: 30px;
+    }
   }
   h3 {
     margin-top: 35px;
@@ -986,6 +995,11 @@ h2 {
 
 .customers {
   padding: 65px 0;
+  p {
+    @media (min-width : 1919px) {
+      line-height: 1.4;
+    }
+  }
 }
 
 /*Футер*/
@@ -1124,13 +1138,29 @@ h2 {
     color: rgb(89, 89, 89);
     font-size: 20px;
     margin-bottom: 29px;
+    &.wpcf7-not-valid {
+      border: 2px solid red;
+    }
+    + .wpcf7-not-valid-tip {
+      margin-bottom: 25px;
+      margin-top: -11px;
+      font-size: 16px;
+    }
   }
   input[type="submit"], button {
-
     padding-left: 20px;
     padding-right: 20px;
     width: 100%;
+    background-color: #0773BD;
+    color: #fff;
+    margin-bottom: 0;
   }
+}
+
+.wpcf7-response-output {
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 0;
 }
 
 
@@ -1579,6 +1609,12 @@ footer {
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 21px;
+  p {
+    line-height: 1.4;
+    @media (min-width : 1919px) {
+      font-size: 32px;      
+    }    
+  }
 }
 
 .plus__numbs {
@@ -1628,7 +1664,8 @@ footer {
 
 
 
-.rul__subtitle {
+.rul__subtitle,
+.rul h5 {
   color: rgb(7, 115, 189);
   font-size: 32px;
   font-weight: 700;
@@ -1963,7 +2000,7 @@ footer {
 .rev__item {
   width: 389px;
   margin: 0 112px;
-  a {
+  a:not(.rev__name) {
     display: block;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.10);        
   }
@@ -1981,6 +2018,7 @@ footer {
 }
 
 .rev__name {
+  display: block;
   color: rgb(5, 4, 4);
   font-size: 24px;
   font-weight: 500;
@@ -2244,6 +2282,7 @@ h5 {
     h4 {
       font-size: calc(20px + (36 - 20) * ((100vw - 320px) / (1830 - 320));    
     }
+    .rul h5,
     .rul__subtitle,
     .sol__desc,
     h5 {

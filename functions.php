@@ -38,6 +38,13 @@ function p_a($arr) {
 }
 
 
+add_filter('site_transient_update_plugins', 'my_remove_update_nag');
+function my_remove_update_nag($value) {
+	unset($value->response[ 'advanced-custom-fields-pro-master/acf.php' ]);
+	return $value;
+}
+
+
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page();
@@ -775,36 +782,120 @@ function disable_wp_emojis_in_tinymce( $plugins ) {
 }
 /* --------------------------------------------------------------------------- */
 
-
-function the_breadcrumb() {
-	if (!is_front_page()) {
+function the_breadcrumb2() {
+	if (!is_home()) {
+		echo "Start » ";
 		echo '<a href="';
 		echo get_option('home');
-		echo '">Main';
-		echo '</a> <i><span class="bread-arr"></span></i> ';
-		if (is_category() || is_single()) {
-      //the_category();
-			if (is_category()) { 
-				single_cat_title();
-        //the_category();
-			}
+		echo '">';
+		bloginfo('name');
+		echo "</a> » ";
+		if (is_category() || is_single() ) {
+			the_category('title_li=');
 			if (is_single()) {
-				the_category();
-				echo '<i> <span class="bread-arr"></span> </i>';
-				if (get_field('status')) {
-					echo get_field('status');
-				}        
-				else {
-					the_title();
-				}
-
+				echo " » ";
+				the_title();
 			}
 		} elseif (is_page()) {
 			echo the_title();
+		} elseif (is_single() && $post_type == 'solutions') {
+			echo "IS THIS WORKING?";
+
+		}
+	} elseif (is_home()) {
+		echo "Start » ";    bloginfo('name');
+	}
+}
+
+
+
+function the_breadcrumb() {
+	if (!is_front_page()) {
+		echo '<li><a href="';
+		echo get_option('home');
+		echo '">Главная';
+		echo '</a></li>';
+		if (is_category() || is_single()) {
+      //the_category();
+			if (is_category()) { 
+				echo '<li>';
+				single_cat_title();
+				echo '</li>';
+        //the_category();
+			}
+			if (is_single()) {
+				echo '<li>';				
+				the_category();
+				global $post;				
+				$post_type = $post->post_type;
+
+				
+
+				//echo $post_type;
+
+
+				if($post_type == 'news') {															
+					echo '<a href="';
+					the_permalink(303);
+					echo '">';
+					echo get_the_title(303);
+					echo '</a>';
+				}
+
+				if($post_type == 'projects') {					
+					echo '<a href="';
+					the_permalink(374);
+					echo '">';
+					echo get_the_title(374);
+					echo '</a>';
+				}
+
+				if($post_type == 'industries') {
+					echo '<a href="';
+					the_permalink(358);
+					echo '">';
+					echo get_the_title(358);
+					echo '</a>';
+				}
+
+				if($post_type == 'directions') {					
+					echo '<a href="';
+					the_permalink(360);
+					echo '">';
+					echo get_the_title(360);
+					echo '</a>';
+				}
+
+				if($post_type == 'solutions') {					
+					echo '<a href="';
+					the_permalink(104);
+					echo '">';
+					echo get_the_title(104);
+					echo '</a>';
+				}
+				
+				
+				echo '</li>';
+				if (get_field('status')) {
+					echo '<li>';
+					echo get_field('status');
+					echo '</li>';
+				}        
+				else {
+					echo '<li>';
+					the_title();
+					echo '</li>';
+				}
+			}
+		}
+		if (is_page()) {
+			echo '<li>';			
+			echo the_title();
+			echo '</li>';
 		}
 	}
 	else {
-		echo '<span class="bread-span">Main</span>';
+		
 	}
 }
 
